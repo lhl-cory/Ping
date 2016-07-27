@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import <Realm.h>
 
 @interface AppDelegate ()
 

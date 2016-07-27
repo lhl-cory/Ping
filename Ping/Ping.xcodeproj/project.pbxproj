@@ -15,6 +15,9 @@
 		5594DB0B1D45E2DE0096D5DF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5594DB0A1D45E2DE0096D5DF /* Assets.xcassets */; };
 		5594DB0E1D45E2DE0096D5DF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5594DB0C1D45E2DE0096D5DF /* LaunchScreen.storyboard */; };
 		71678BD4F8B7654916D3F4B0 /* libPods-Ping.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 099398FE9E3F4648F16B801E /* libPods-Ping.a */; };
+		9C2660651D4865BE009B8D24 /* UserRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C2660641D4865BE009B8D24 /* UserRecord.m */; };
+		9C2660681D4865D2009B8D24 /* TimePeriod.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C2660671D4865D2009B8D24 /* TimePeriod.m */; };
+		9C26606B1D4865E2009B8D24 /* RecordManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C26606A1D4865E2009B8D24 /* RecordManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +33,13 @@
 		5594DB0A1D45E2DE0096D5DF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5594DB0D1D45E2DE0096D5DF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5594DB0F1D45E2DE0096D5DF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9C2660631D4865BE009B8D24 /* UserRecord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserRecord.h; sourceTree = "<group>"; };
+		9C2660641D4865BE009B8D24 /* UserRecord.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserRecord.m; sourceTree = "<group>"; };
+		9C2660661D4865D2009B8D24 /* TimePeriod.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimePeriod.h; sourceTree = "<group>"; };
+		9C2660671D4865D2009B8D24 /* TimePeriod.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimePeriod.m; sourceTree = "<group>"; };
+		9C2660691D4865E2009B8D24 /* RecordManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecordManager.h; sourceTree = "<group>"; };
+		9C26606A1D4865E2009B8D24 /* RecordManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecordManager.m; sourceTree = "<group>"; };
+		9C6F41701D46E4EF00AF1168 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
 		BBF5D50F2E3876EE0E2E3951 /* Pods-Ping.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ping.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Ping/Pods-Ping.debug.xcconfig"; sourceTree = "<group>"; };
 		EB38DA1028CD9B2B046846B0 /* Pods-Ping.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ping.release.xcconfig"; path = "Pods/Target Support Files/Pods-Ping/Pods-Ping.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -49,6 +59,7 @@
 		08964D78EC31F1C43E173827 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9C6F41701D46E4EF00AF1168 /* libc++.tbd */,
 				099398FE9E3F4648F16B801E /* libPods-Ping.a */,
 			);
 			name = Frameworks;
@@ -79,6 +90,12 @@
 				5594DAFF1D45E2DE0096D5DF /* AppDelegate.m */,
 				5594DB011D45E2DE0096D5DF /* ViewController.h */,
 				5594DB021D45E2DE0096D5DF /* ViewController.m */,
+				9C2660631D4865BE009B8D24 /* UserRecord.h */,
+				9C2660641D4865BE009B8D24 /* UserRecord.m */,
+				9C2660661D4865D2009B8D24 /* TimePeriod.h */,
+				9C2660671D4865D2009B8D24 /* TimePeriod.m */,
+				9C2660691D4865E2009B8D24 /* RecordManager.h */,
+				9C26606A1D4865E2009B8D24 /* RecordManager.m */,
 				5594DB041D45E2DE0096D5DF /* Main.storyboard */,
 				5594DB0A1D45E2DE0096D5DF /* Assets.xcassets */,
 				5594DB0C1D45E2DE0096D5DF /* LaunchScreen.storyboard */,
@@ -227,10 +244,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9C26606B1D4865E2009B8D24 /* RecordManager.m in Sources */,
 				5594DB031D45E2DE0096D5DF /* ViewController.m in Sources */,
 				5594DB001D45E2DE0096D5DF /* AppDelegate.m in Sources */,
 				5594DAFD1D45E2DE0096D5DF /* main.m in Sources */,
+				9C2660681D4865D2009B8D24 /* TimePeriod.m in Sources */,
 				5594DB091D45E2DE0096D5DF /* Ping.xcdatamodeld in Sources */,
+				9C2660651D4865BE009B8D24 /* UserRecord.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

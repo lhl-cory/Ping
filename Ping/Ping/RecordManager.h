@@ -7,7 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "TimePeriod.h"
 
 @interface RecordManager : NSObject
+
+@property (nonatomic) NSMutableArray *timePeriods;
+
+-(void)storeBlueToothDataByUUID:(NSString *)userUUID userProximity:(NSString *)proximity andTime:(NSString *)time;
 
 @end

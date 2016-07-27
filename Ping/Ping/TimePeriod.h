@@ -7,7 +7,11 @@
 //
 
 #import <Realm/Realm.h>
+#import "UserRecord.h"
 
 @interface TimePeriod : RLMObject
+
+@property (nonatomic) NSDate *startTime;
+@property (nonatomic) NSMutableArray *userRecords;
 
 @end
