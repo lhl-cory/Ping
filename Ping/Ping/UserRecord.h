@@ -11,7 +11,9 @@
 @interface UserRecord : RLMObject
 
 @property (nonatomic) NSString *uUID;
-@property (nonatomic) double totalDistance;
+@property (nonatomic) int totalDistance;
 @property (nonatomic) int numberOfObs;
+
+- (instancetype)initWithUUID:(NSString *)uUID andDistance:(int)distance;
 
 @end

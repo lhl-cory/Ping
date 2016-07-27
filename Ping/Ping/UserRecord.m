@@ -10,4 +10,19 @@
 
 @implementation UserRecord
 
+- (instancetype)initWithUUID:(NSString *)uUID andDistance:(int)distance
+{
+    self = [super init];
+    if (self) {
+        self.uUID = uUID;
+        self.totalDistance = distance;
+        self.numberOfObs = 1;
+    }
+    return self;
+}
+
+-(void)setTotalDistance:(int)totalDistance {
+    _totalDistance = abs(totalDistance);
+}
+
 @end

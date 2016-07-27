@@ -7,8 +7,11 @@
 //
 
 #import "ViewController.h"
+#import "RecordManager.h"
 
 @interface ViewController ()
+
+- (IBAction)runButtonPressed:(id)sender;
 
 @end
 
@@ -24,4 +27,11 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)runButtonPressed:(id)sender {
+    NSDate *currentDate = [NSDate date];
+    NSString *uUID = @"aufghsoguhaoifoaifhgaogiheowg";
+    int proximity = 25;
+    RecordManager *aRecordManager = [[RecordManager alloc] init];
+    [aRecordManager storeBlueToothDataByUUID:uUID userProximity:proximity andTime:currentDate];
+}
 @end
