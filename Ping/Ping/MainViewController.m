@@ -35,7 +35,12 @@
     [super viewDidLoad];
 
     self.blueToothManager = [[BlueToothManager alloc] init];
+    // CR: BlueToothManager has a singleton, but this is a different one!
     self.recordManager = [[RecordManager alloc] init];
+    
+    // CR: User, ParseUser, PingUser CurrentUser, and UserManager.
+    // CR: That's a lot of classes, very unclear what the differences are.
+    // CR: Merge some ideas, rename some ideas, etc.
     
     CurrentUser *user = [CurrentUser getCurrentUser];
     NSLog(@"%@", user);
@@ -70,8 +75,14 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-
+    // CR: Store identifiers as class-methods on the cell class
     PingUserTableViewCell *cell = (PingUserTableViewCell *)[self.tableView dequeueReusableCellWithIdentifier:@"PingUserTableViewCell" forIndexPath:indexPath];
+    
+//    [self.tableView dequeueReusableCellWithIdentifier:<#(nonnull NSString *)#>]
+//    vs.
+//    [self.tableView dequeueReusableCellWithIdentifier:<#(nonnull NSString *)#> forIndexPath:<#(nonnull NSIndexPath *)#>];
+//    
+//    
     if (cell == nil) {
         PingUserTableViewCell *cell = [[PingUserTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"PingUserTableViewCell"];
         return cell;
@@ -124,6 +135,8 @@
 #pragma mark -Helper Methodes
 
 // ToDo refactored martin's code so we "should" be able to delete this 
+
+// CR: move into a category on NSDate. (or delete).
 
 -(NSDate *)getStartTimeForTimePeriod:(NSDate *)time{
     NSCalendar *cal = [NSCalendar calendarWithIdentifier:NSCalendarIdentifierGregorian]; // get calander

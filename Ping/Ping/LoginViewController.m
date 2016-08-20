@@ -30,7 +30,7 @@
 @property (strong, nonatomic) UserManager *userManager;
 @property UIView *extensionView;
 
-typedef void(^myCompletion)(BOOL);
+typedef void(^myCompletion)(BOOL); // CR: Not used.
 
 
 @end
@@ -46,7 +46,7 @@ typedef void(^myCompletion)(BOOL);
     self.loadingView = [[LoadingView alloc] initWithFrame:CGRectZero];
     self.loadingView.backgroundColor = [UIColor colorWithRed:0.85 green:0.98 blue:0.67 alpha:1.0];
     
-    self.view.userInteractionEnabled = YES;
+    self.view.userInteractionEnabled = YES; // CR: ??
     self.loadingView.userInteractionEnabled = YES;
     
     [self.userManager fetchUsersWthCompletion:^(NSArray *users) {

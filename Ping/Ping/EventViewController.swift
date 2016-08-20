@@ -71,9 +71,16 @@ class EventViewController: UIViewController, UITableViewDataSource, UITableViewD
         }
     }
 
-    
+    // CR: get
     func getCurrentTimePeriodForSliderValue(sliderValue:UInt) -> TimePeriod? {
+        // CR: if-let where
+
         
+        if let timePeriods = timePeriods
+            where timePeriods.count != 0 &&
+                Int(sliderValue) < timePeriods.count {
+            
+        }
         if let timePeriods = timePeriods {
             if timePeriods.count != 0 {
                 if Int(sliderValue) < timePeriods.count {

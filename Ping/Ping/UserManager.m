@@ -55,7 +55,7 @@
 }
 
 - ( User * _Nullable )userForUUID:(NSString *)uuid {
-    
+    // CR: PFObject??
     for (PFObject *parseUser in self.parseUsers) {
         if ([parseUser[@"UUID"] isEqualToString:uuid]) {
             User *user =[self userFrom:parseUser];
@@ -66,6 +66,7 @@
 }
 
 - (User *)userFrom:(PFObject *)parseUser {
+    // CR: PFObject??
     // copy parse user as regular user
     User *user = [[User alloc] init];
     user.firstName = parseUser[@"firstName"]; // ToDo these parse getters will return nil if the there is an error wrap them in nil checks and replace with empty strings 

@@ -9,7 +9,7 @@
 #import "NSString+UUID.h"
 
 @implementation NSString (UUID)
-
+// CR: [[NSUUID UUID] UUIDString];
 + (NSString*)getUUID {
     CFUUIDRef newUniqueId = CFUUIDCreate(kCFAllocatorDefault);
     NSString * uuidString = (__bridge_transfer NSString*)CFUUIDCreateString(kCFAllocatorDefault, newUniqueId);

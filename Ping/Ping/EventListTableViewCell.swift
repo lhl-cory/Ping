@@ -16,18 +16,8 @@ class EventListTableViewCell: UITableViewCell {
     @IBOutlet weak var eventLocationLabel: UILabel!
     
     let gradientLayer = CAGradientLayer()
+    // CR: Remove unused methods
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
-    override func setSelected(selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-    
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         

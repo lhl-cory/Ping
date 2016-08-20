@@ -27,7 +27,7 @@ class UserTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        
+        // CR: Package into CAGradientLayer extension, because used twice.
         gradientLayer.frame = self.bounds
         let color1 = UIColor(white: 1.0, alpha: 0.2).CGColor as CGColorRef
         let color2 = UIColor(white: 1.0, alpha: 0.1).CGColor as CGColorRef

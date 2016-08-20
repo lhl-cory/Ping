@@ -34,7 +34,8 @@
 #pragma mark - BlueTooth Montioring Methods
 
 // convert userProximity string into a int
-
+// CR: perisistUUID:proximity:andTime:
+// CR: the record manager should probably not contain the word "bluetooth" anywhere
 -(void)storeBlueToothDataByUUID:(NSString *)userUUID userProximity:(int)proximity andTime:(NSDate *)time {
     dispatch_queue_t queue = self.backgroundQueue;
     dispatch_async(queue, ^{
@@ -61,6 +62,7 @@
                     [[CurrentUser getCurrentUser].events addObject:rightNow];
                     
                 }
+                // CR: This method is too long. simplify or break into separate private methods.
                 
                 // add records to each current event
                 for (Event *currentEvent in currentEvents) {

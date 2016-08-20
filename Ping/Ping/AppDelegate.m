@@ -16,7 +16,7 @@
 #import "LoginManager.h"
 
 #import <linkedin-sdk/LISDK.h>
-
+//CR: api keys in git. *finger wag*
 #import <Parse/Parse.h>
 #define Parse_APP_ID @"QaDwdtxkrP8gd42kZrvn1aHv64PKRNLxuuHY964v"
 #define Parse_Client_Key @"AZ8btrgurhLG306dVeWjKjx9nSszPI5sAoqwcZ6F"
@@ -30,7 +30,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
     UIMutableUserNotificationAction *noBTAction = [[UIMutableUserNotificationAction alloc] init];
-    noBTAction.identifier = @"NO_BLUETOOTH";
+    noBTAction.identifier = @"NO_BLUETOOTH"; // CR: define constants for identifiers
     noBTAction.title = @"Turn off BlueTooth";
     noBTAction.activationMode = UIUserNotificationActivationModeBackground;
     noBTAction.authenticationRequired = false;
@@ -66,7 +66,7 @@
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     
     WelcomeScrollingViewController *loginVC = [storyboard instantiateViewControllerWithIdentifier:@"LoginViewController"];
-    
+    // CR: why this and not storyboard only?
     UINavigationController *navCtrlr = [[UINavigationController alloc]initWithRootViewController:loginVC];
     [self.window setRootViewController:navCtrlr];
     navCtrlr.navigationBarHidden = YES;
@@ -100,7 +100,7 @@
     }else if ([identifier isEqualToString: @"NO_BLUETOOTH"]){
         caseNum = 1;
     }
-    
+    // CR: redundant... if/else THEN a switch?
     NSLog(@"Action identifier is %@", identifier);
     
     switch (caseNum) {
@@ -118,29 +118,31 @@
 
 #pragma mark -3D Touch
 
+// CR: Can we get back from these?
 - (void)application:(UIApplication *)application performActionForShortcutItem:(UIApplicationShortcutItem *)shortcutItem completionHandler:(void (^)(BOOL))completionHandler {
     
     NSLog(@"%@ item pressed.", shortcutItem.localizedTitle);
     
     LoginManager *loginManager = [[LoginManager alloc] init];
-    
-    if ([loginManager isLoggedIn]) {
-        
-        if ([shortcutItem.type isEqualToString:@"com.Ping.createEvent"]) {
-            [self launchNewEventViewController];
-//            self.userShouldBeDirectedToNewEventViewController = YES;
-        }
-        
-        if ([shortcutItem.type isEqualToString:@"com.Ping.surroundings"]) {
-            [self launchSurroundingsViewController];
-        }
-        
-        if ([shortcutItem.type isEqualToString:@"com.Ping.browseEvents"]) {
-            [self launchEventCalenderViewController];
-//            self.userShouldBeDirectedToCurrentSurroundingsViewController = YES;
-        }
-    } else {
+    // CR: Good candidate for an early return (guard-let in swift)
+    if (![loginManager isLoggedIn]) {
         [self launchLogInScreen];
+        return;
+    }
+    
+    // CR: Constants
+    if ([shortcutItem.type isEqualToString:@"com.Ping.createEvent"]) {
+        [self launchNewEventViewController];
+        //            self.userShouldBeDirectedToNewEventViewController = YES;
+    }
+    
+    if ([shortcutItem.type isEqualToString:@"com.Ping.surroundings"]) {
+        [self launchSurroundingsViewController];
+    }
+    
+    if ([shortcutItem.type isEqualToString:@"com.Ping.browseEvents"]) {
+        [self launchEventCalenderViewController];
+        //            self.userShouldBeDirectedToCurrentSurroundingsViewController = YES;
     }
 }
 

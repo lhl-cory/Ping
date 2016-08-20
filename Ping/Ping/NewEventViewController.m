@@ -87,6 +87,7 @@
 }
 
 - (IBAction)completeButtonPressed:(id)sender {
+    // CR: Do the read here, rather than on change events.
     
     if ([self validEvent]) {
         CurrentUser *currentUser = [CurrentUser getCurrentUser];
@@ -126,6 +127,8 @@
     [darkView addGestureRecognizer:tapGesture];
     [self.view addSubview:darkView];
     
+    // CR: a lot of ui setup code for a button action.
+    // CR: consider having all of this pre-built and hide/show or lazy-loaded in it's getter.
     
     //set up date picker
     UIDatePicker *datePicker = [[UIDatePicker alloc] initWithFrame:CGRectMake(0, self.view.bounds.size.height, self.view.bounds.size.width, 380)];

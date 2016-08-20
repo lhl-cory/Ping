@@ -10,8 +10,18 @@
 
 import UIKit
 
+// CR: consider a struct.
+//struct LoginAnimationLayers {
+//    var shape1: CAShapeLayer = {
+//        
+//    }()
+//}
+
+
 @IBDesignable
 class LoadingView: UIView {
+    // CR: avoid AnyObject. Everything in layers is a CALayer at least.
+    // CR: Consider a struct to hold all your layers, rather than a dictionary.
     
     var layers : Dictionary<String, AnyObject> = [:]
     var completionBlocks : Dictionary<CAAnimation, (Bool) -> Void> = [:]
@@ -41,10 +51,13 @@ class LoadingView: UIView {
     }
     
     func setupLayers(){
+        // CR: Whitespace between each layer, and capitals (LoadingAnimationGroup vs loadingAnimationGroup)
         let LoadingAnimationGroup = CALayer()
         LoadingAnimationGroup.frame = CGRectMake(118.07, 127, 168.93, 146)
         self.layer.addSublayer(LoadingAnimationGroup)
         layers["LoadingAnimationGroup"] = LoadingAnimationGroup
+        
+        
         let Phone = CALayer()
         Phone.frame = CGRectMake(0, 0.04, 83.85, 145.96)
         LoadingAnimationGroup.addSublayer(Phone)
@@ -242,6 +255,8 @@ class LoadingView: UIView {
         CATransaction.begin()
         CATransaction.setDisableActions(true)
         
+
+        // CR: don't need a check before every if. Guard-let once and be done.
         if layerIds == nil || layerIds.contains("roundedRect"){
             let roundedRect = layers["roundedRect"] as! CAShapeLayer
             roundedRect.fillColor   = UIColor.blackColor().CGColor
